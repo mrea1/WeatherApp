@@ -18,10 +18,10 @@ class WeatherMapper : Mapper<Pair<GetWeatherResponse, String>, Weather> {
 
         return response.observations.location.first().observation.first().run {
             val weatherType = when {
-                skyInfo in sunnyIndices -> WeatherType.Sunny
-                skyInfo in cloudyIndices -> WeatherType.Cloudy
                 precipitationDesc.contains(RAIN, ignoreCase = true) -> WeatherType.Rain
                 precipitationDesc.contains(SNOW, ignoreCase = true) -> WeatherType.Snow
+                skyInfo in cloudyIndices -> WeatherType.Cloudy
+                skyInfo in sunnyIndices -> WeatherType.Sunny
                 else -> WeatherType.Unknown
             }
 

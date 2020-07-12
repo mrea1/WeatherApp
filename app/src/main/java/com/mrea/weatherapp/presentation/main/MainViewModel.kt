@@ -71,7 +71,7 @@ class MainViewModel(application: Application, private val getCurrentWeather: Get
         return when (weatherType) {
             is WeatherType.Sunny -> AnimationUiState(true, R.raw.sun)
             is WeatherType.Cloudy -> AnimationUiState(false, R.raw.cloudy)
-            is WeatherType.Rain -> AnimationUiState(false, R.raw.rain)
+            is WeatherType.Rain -> AnimationUiState(true, R.raw.rain)
             is WeatherType.Snow -> AnimationUiState(true, R.raw.snow)
             is WeatherType.Unknown -> gone()
         }
