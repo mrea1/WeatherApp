@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NextAppWeather</string>
+
+    <string name="temperature">%s&#xb0;</string>
+    <string name="feels_like_temperature">Feels like %s&#xb0;</string>
+    <string name="snow">Snow</string>
+    <string name="rain">Rain</string>
+    <string name="sun">Sun</string>
+    <string name="clouds">Clouds</string>
+    <string name="error_text">Oops!\nSomething went wrong!</string>
+    <string name="animation">Animation</string>
+    <string name="zip_code">Zip Code</string>
+    <string name="search_error_text">Invalid Zip Code</string>
+</resources>
