@@ -132,4 +132,4 @@ git checkout -b release-$VERSION_NUMBER origin/master
 
 # Replace version_name with new version in versions.gradle
 sed -i '' -e "s,config.version_name = .*,config.version_name = \"$VERSION_NUMBER\"," "versions.gradle"
-git push
+git push -u origin release-$VERSION_NUMBER
