@@ -9,11 +9,11 @@ class GetCurrentWeather(private val repository: WeatherRepository) {
 
         // todo: mrea 7/11/20 - review business requirements for error handling with Product Owner
         if (weather.city.isEmpty() || weather.state.isEmpty() || weather.description.isEmpty()) {
-            throw InvalidNetworkResponse()
+            throw InvalidNetworkResponse("The API response is missing required data")
         }
 
         return weather
     }
 
-    class InvalidNetworkResponse: Exception("The response from the API is missing required data")
+    data class InvalidNetworkResponse(override val message: String): Exception(message)
 }

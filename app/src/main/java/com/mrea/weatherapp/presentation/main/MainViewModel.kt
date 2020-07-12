@@ -27,9 +27,7 @@ class MainViewModel(application: Application, private val getCurrentWeather: Get
 
     private val app: WeatherApp get() = getApplication()
 
-    private val _uiStateLiveData: MutableLiveData<MainUiState> = MutableLiveData(
-        MainUiState(isLoading = true)
-    )
+    private val _uiStateLiveData: MutableLiveData<MainUiState> = MutableLiveData(initialState())
     val uiStateLiveData: LiveData<MainUiState> get() = _uiStateLiveData
     val uiState: MainUiState get() = requireNotNull(uiStateLiveData.value)
 
@@ -41,7 +39,9 @@ class MainViewModel(application: Application, private val getCurrentWeather: Get
         }
     }
 
-    private fun onError(error: Throwable) {
+    fun initialState(): MainUiState = MainUiState(isLoading = true)
+
+    fun onError(error: Throwable) {
         Timber.e("$error")
         updateState(uiState.copy(hasError = true, isLoading = false, animation = gone()))
     }
@@ -62,7 +62,7 @@ class MainViewModel(application: Application, private val getCurrentWeather: Get
                 feelsLikeTemperature = app.getString(R.string.feels_like_temperature, weather.comfort.toInt().toString()),
                 currentTemperature = app.getString(R.string.temperature, weather.temperature.toInt().toString()),
                 currentWeatherDescription = weather.description,
-                icon = ImageUiState(url = weather.iconLink, debugLoggingEnabled = true)
+                icon = ImageUiState(url = weather.iconLink)
             )
         )
     }

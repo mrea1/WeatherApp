@@ -9,6 +9,7 @@ class WeatherMapper : Mapper<Pair<GetWeatherResponse, String>, Weather> {
         val sunnyIndices = listOf(1..4, 7..7, 12..12, 14..14).flatten()
         val cloudyIndices = listOf(5..7, 9..11, 13..13, 15..23, 26..33).flatten()
         const val RAIN = "Rain"
+        const val SNOW = "Snow"
         const val DAYLIGHT_ID = "D"
     }
 
@@ -20,6 +21,7 @@ class WeatherMapper : Mapper<Pair<GetWeatherResponse, String>, Weather> {
                 skyInfo in sunnyIndices -> WeatherType.Sunny
                 skyInfo in cloudyIndices -> WeatherType.Cloudy
                 precipitationDesc.contains(RAIN, ignoreCase = true) -> WeatherType.Rain
+                precipitationDesc.contains(SNOW, ignoreCase = true) -> WeatherType.Snow
                 else -> WeatherType.Unknown
             }
 
