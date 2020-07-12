@@ -5,7 +5,7 @@ This is a simple Android app written in Kotlin that displays the current weather
 
 Here Destination [Weather API](https://developer.here.com/documentation/destination-weather/dev_guide/topics/resource-report.html) is used to fetch the current weather information
 
-### Libraries used:
+#### Libraries used:
   - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) for easy MVVM implementation
   - [Material Components](https://github.com/material-components/material-components-android) for beautiful Material UI
   - [Timber](https://github.com/JakeWharton/timber) for logging
@@ -60,11 +60,16 @@ The ViewModel exposes a `UiState` LiveData stream that continually emits based o
 
 DataBinding is leveraged to minimize logic and boilerplate in the View. Most data from the ViewModel's UiState is directly mapped to the Android `View`s
 
+#### Animations 
+Some animations were added using Lottie to portray the current weather conditions. A small set of animations were added; this could be expanded to include all possible weather conditions
+
+To view the various animations available, **pull out the debug drawer** from the very left side of the screen
+
 
 ## Continuous Integration (CI)
 Github Actions is used to build and run unit tests on each commit on the `master` branch
 
-See this build for an example
+**See this build** for an example
 https://github.com/mrea1/WeatherApp/runs/862106667
 
 Future enhancements could include:
