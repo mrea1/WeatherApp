@@ -29,15 +29,14 @@ class WeatherMapperTest {
         weather = mapper.map(buildMockWeatherResponse(skyInfo = 18) to "19101")
         weather.assertEquals(buildMockWeather(zipCode = "19101", weatherType = WeatherType.Cloudy, skyInfo = 18))
 
+        weather = mapper.map(buildMockWeatherResponse(skyInfo = 7) to "19101")
+        weather.assertEquals(buildMockWeather(zipCode = "19101", weatherType = WeatherType.Cloudy, skyInfo = 7))
+        
         weather = mapper.map(buildMockWeatherResponse(skyInfo = 30) to "19101")
         weather.assertEquals(buildMockWeather(zipCode = "19101", weatherType = WeatherType.Cloudy, skyInfo = 30))
 
         weather = mapper.map(buildMockWeatherResponse(skyInfo = 2) to "19101")
         weather.assertEquals(buildMockWeather(zipCode = "19101", weatherType = WeatherType.Sunny, skyInfo = 2))
-
-        weather = mapper.map(buildMockWeatherResponse(skyInfo = 7) to "19101")
-        weather.assertEquals(buildMockWeather(zipCode = "19101", weatherType = WeatherType.Sunny, skyInfo = 7))
-
         weather = mapper.map(buildMockWeatherResponse(skyInfo = 12) to "19101")
         weather.assertEquals(buildMockWeather(zipCode = "19101", weatherType = WeatherType.Sunny, skyInfo = 12))
 

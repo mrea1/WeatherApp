@@ -88,7 +88,7 @@ class MainViewModelTest {
         viewModel.uiState.searchBox.assertEquals(TextInputUiState(isVisible = false, hasError = false, currentText = "78704"))
         viewModel.uiState.currentLocation.assertEquals("Austin, Texas")
         viewModel.uiState.showNightMode.assertFalse()
-        viewModel.uiState.animation.assertEquals(AnimationUiState(false, R.raw.rain))
+        viewModel.uiState.animation.assertEquals(AnimationUiState(true, R.raw.rain))
         viewModel.uiState.feelsLikeTemperature.assertEquals("Feels like 75°")
         viewModel.uiState.currentTemperature.assertEquals("70°")
         viewModel.uiState.currentWeatherDescription.assertEquals("Summertime and the livin' is easy")
@@ -98,7 +98,7 @@ class MainViewModelTest {
     @Test
     fun `getBackgroundAnimation should map weather type to correct AnimationUiState`() = runBlockingTest {
         viewModel = MainViewModel(app, getCurrentWeather)
-        viewModel.getBackgroundAnimation(WeatherType.Rain).assertEquals(AnimationUiState(false, R.raw.rain))
+        viewModel.getBackgroundAnimation(WeatherType.Rain).assertEquals(AnimationUiState(true, R.raw.rain))
         viewModel.getBackgroundAnimation(WeatherType.Sunny).assertEquals(AnimationUiState(true, R.raw.sun))
         viewModel.getBackgroundAnimation(WeatherType.Cloudy).assertEquals(AnimationUiState(false, R.raw.cloudy))
         viewModel.getBackgroundAnimation(WeatherType.Snow).assertEquals(AnimationUiState(true, R.raw.snow))

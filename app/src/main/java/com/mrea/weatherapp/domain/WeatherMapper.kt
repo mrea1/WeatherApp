@@ -6,7 +6,7 @@ import com.mrea.weatherapp.data.GetWeatherResponse
 class WeatherMapper : Mapper<Pair<GetWeatherResponse, String>, Weather> {
 
     companion object {
-        val sunnyIndices = listOf(1..4, 7..7, 12..12, 14..14).flatten()
+        val sunnyIndices = listOf(1..4, 12..12, 14..14).flatten()
         val cloudyIndices = listOf(5..7, 9..11, 13..13, 15..23, 26..33).flatten()
         const val RAIN = "Rain"
         const val SNOW = "Snow"
