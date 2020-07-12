@@ -1,4 +1,4 @@
-package com.mrea.weatherapp
+package com.mrea.weatherapp.presentation.main
 
 import com.mrea.weatherapp.presentation.AnimationUiState
 import com.mrea.weatherapp.presentation.ImageUiState

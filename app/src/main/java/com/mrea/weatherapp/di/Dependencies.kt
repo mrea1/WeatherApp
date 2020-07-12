@@ -1,6 +1,6 @@
 package com.mrea.weatherapp.di
 
-import com.mrea.weatherapp.MainViewModel
+import com.mrea.weatherapp.presentation.main.MainViewModel
 import com.mrea.weatherapp.data.AuthInterceptor
 import com.mrea.weatherapp.data.WeatherApi
 import com.mrea.weatherapp.data.WeatherRepository

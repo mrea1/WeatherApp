@@ -1,10 +1,12 @@
-package com.mrea.weatherapp
+package com.mrea.weatherapp.presentation.main
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.mrea.weatherapp.R
+import com.mrea.weatherapp.WeatherApp
 import com.mrea.weatherapp.domain.GetCurrentWeather
 import com.mrea.weatherapp.domain.Weather
 import com.mrea.weatherapp.domain.WeatherType
@@ -25,7 +27,9 @@ class MainViewModel(application: Application, private val getCurrentWeather: Get
 
     private val app: WeatherApp get() = getApplication()
 
-    private val _uiStateLiveData: MutableLiveData<MainUiState> = MutableLiveData(MainUiState(isLoading = true))
+    private val _uiStateLiveData: MutableLiveData<MainUiState> = MutableLiveData(
+        MainUiState(isLoading = true)
+    )
     val uiStateLiveData: LiveData<MainUiState> get() = _uiStateLiveData
     val uiState: MainUiState get() = requireNotNull(uiStateLiveData.value)
 

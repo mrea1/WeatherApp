@@ -1,4 +1,4 @@
-package com.mrea.weatherapp
+package com.mrea.weatherapp.presentation.main
 
 import android.os.Bundle
 import android.widget.RadioGroup
@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.observe
+import com.mrea.weatherapp.BR
+import com.mrea.weatherapp.R
 import com.mrea.weatherapp.databinding.MainActivityBinding
 import com.mrea.weatherapp.domain.WeatherType.*
 import com.mrea.weatherapp.presentation.hideKeyboard

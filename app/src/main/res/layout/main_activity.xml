@@ -7,7 +7,7 @@
 
         <variable
             name="uiState"
-            type="androidx.lifecycle.LiveData&lt;com.mrea.weatherapp.MainUiState>" />
+            type="androidx.lifecycle.LiveData&lt;com.mrea.weatherapp.presentation.main.MainUiState>" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
