@@ -3,7 +3,6 @@ package com.mrea.weatherapp.presentation
 import androidx.annotation.DrawableRes
 import androidx.annotation.RawRes
 
-
 data class ImageUiState(
     val url: String = "",
     @DrawableRes val localImage: Int = 0,

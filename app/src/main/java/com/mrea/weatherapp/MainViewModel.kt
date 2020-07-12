@@ -18,6 +18,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
+// Setting default to Austin. Normally this app would use GPS to determine default
+const val AUSTIN_ZIP_CODE = "78704"
+
 class MainViewModel(application: Application, private val getCurrentWeather: GetCurrentWeather) : AndroidViewModel(application) {
 
     private val app: WeatherApp get() = getApplication()
@@ -30,7 +33,7 @@ class MainViewModel(application: Application, private val getCurrentWeather: Get
 
     init {
         getData {
-            showWeatherData(getCurrentWeather.run("78704"))
+            showWeatherData(getCurrentWeather.run(AUSTIN_ZIP_CODE))
         }
     }
 

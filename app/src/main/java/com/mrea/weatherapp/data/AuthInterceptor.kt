@@ -5,8 +5,8 @@ import okhttp3.Interceptor
 import okhttp3.Response
 
 object AuthInterceptor : Interceptor {
-    const val API_KEY_NAME: String = "apiKey"
-    const val API_KEY: String = "QK_yM83wVXTpObnyknsVr1Uq7brPnNOYSjFM3-WrRSQ"
+    private const val API_KEY_NAME: String = "apiKey"
+    private const val API_KEY: String = "QK_yM83wVXTpObnyknsVr1Uq7brPnNOYSjFM3-WrRSQ"
 
     override fun intercept(chain: Interceptor.Chain): Response {
         return chain.proceed(

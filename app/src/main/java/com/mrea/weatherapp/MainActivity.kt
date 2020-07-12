@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         initDatabinding()
         setListeners()
     }
@@ -54,7 +53,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun onUiStateUpdated(uiState: MainUiState) {
         Timber.d("Received UiState: $uiState")
-
         binding.searchBox.editText?.run {
             if (uiState.showKeyboard) showKeyboard() else hideKeyboard()
         }

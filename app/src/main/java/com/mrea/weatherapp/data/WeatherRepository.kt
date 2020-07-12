@@ -13,7 +13,7 @@ class WeatherRepository(private val weatherApi: WeatherApi, private val mapper: 
         } else {
             weather ?: fetchWeather(zipCode)
         }
-        return weather!!
+        return requireNotNull(weather)
     }
 
     suspend fun fetchWeather(zipCode: String) {
