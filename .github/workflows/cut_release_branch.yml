@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Cut Release Branch
 
 # Every Sunday at 6:50CT
 on:
@@ -15,5 +15,5 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Cut release branch
+    - name: run
       run: sh ./scripts/release-branch-creator.sh
