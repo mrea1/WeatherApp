@@ -45,7 +45,9 @@ increment_version() {
   # local IFSbak
   # IFSbak=IFS
   # IFS='.'            # IFS restored at end of func to
-  v=(${v//./ })
+#  v=(${v//./ })
+  v=(`echo v | tr '.' ' '`)
+
 
   # Determine target position.
   if [ "${targetPos}" == "last" ]; then
