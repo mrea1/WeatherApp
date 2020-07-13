@@ -1,0 +1,19 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Cut Release Branch
+
+# Every Sunday at 6:50CT
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: run
+      run: sh ./scripts/release-branch-creator.sh
