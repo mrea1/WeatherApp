@@ -45,11 +45,8 @@ increment_version() {
   # local IFSbak
   # IFSbak=IFS
   # IFS='.'            # IFS restored at end of func to
-  # read -ra v <<<"$v" #  avoid breaking other scripts.
-  set -f
-  IFS=.
-  v=($v)
-  # for key in "${!v[@]}"; do echo "$key ${v[$key]}"; done
+  # v=(${v//./})
+  read -ra v <<<"$v" #  avoid breaking other scripts.
 
 
   # Determine target position.
