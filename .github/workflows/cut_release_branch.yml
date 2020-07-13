@@ -3,7 +3,7 @@ name: Cut Release Branch
 on:
   schedule:
      # Every hour, on the hour
-     - cron: '0 * * * *'
+     - cron: '0 0 * * 5'
      # Every Friday at 5:00 PST
 #     - cron: '0 0 * * 6'
 
