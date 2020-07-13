@@ -114,7 +114,7 @@ fi
 
 if [ -z "$1" ]; then
   # Get current version from versions.gradle and remove quotes
-  previous_version=$(sed -n 's/^config.version_name = //p' "versions.gradle")
+  previous_version=$(sed -n 's/^config.version_name = //p' "./scripts/versions.gradle")
   VERSION_NUMBER="${previous_version%\"}"
   VERSION_NUMBER="${VERSION_NUMBER#\"}"
   # Increment minor version
@@ -130,6 +130,6 @@ git checkout -b release-$VERSION_NUMBER origin/master
 #read -p "Press Enter if correct or Ctrl+C if not"
 
 # Replace version_name with new version in versions.gradle
-sed -i '' -e "s,config.version_name = .*,config.version_name = \"$VERSION_NUMBER\"," "versions.gradle"
+sed -i '' -e "s,config.version_name = .*,config.version_name = \"$VERSION_NUMBER\"," "./scripts/versions.gradle"
 git add -A && git commit -m "Uptick to $VERSION_NUMBER"
 git push -u origin release-$VERSION_NUMBER
