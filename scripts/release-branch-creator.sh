@@ -46,7 +46,7 @@ increment_version() {
   # IFSbak=IFS
   # IFS='.'            # IFS restored at end of func to
 #  v=(${v//./ })
-  v=(`echo v | tr '.' ' '`)
+  v=(`echo $v | tr '.' ' '`)
 
 
   # Determine target position.
