@@ -42,12 +42,10 @@ increment_version() {
   local minPos=${3-${2-0}}  # minimum position
 
   # Split version string into array using its periods.
-  # local IFSbak
-  # IFSbak=IFS
-  # IFS='.'            # IFS restored at end of func to
-  # v=(${v//./})
+  local IFSbak
+  IFSbak=IFS
+  IFS='.'            # IFS restored at end of func to
   read -ra v <<<"$v" #  avoid breaking other scripts.
-
 
   # Determine target position.
   if [ "${targetPos}" == "last" ]; then
@@ -80,7 +78,7 @@ increment_version() {
   else for ((p = $((${#v[@]} - 1)); $p > $targetPos; p--)); do v[$p]=0; done; fi
 
   echo "${v[*]}"
-  # IFS=IFSbak
+  IFS=IFSbak
   return 0
 }
 
@@ -107,13 +105,12 @@ increment_version() {
 # Cron doesn't support "every two weeks", so we have to use "every week"
 # This conditional skips every other week
 week=$(date +%U)
-if [ $(($week % 2)) == 0 ]; then 
-    echo even week, do nothing
-    # exit
-else 
-    echo odd week, cut release branch
+if [ $(($week % 2)) == 0 ]; then
+  echo even week, do nothing
+  # exit
+else
+  echo odd week, cut release branch
 fi
-
 
 if [ -z "$1" ]; then
   # Get current version from versions.gradle and remove quotes
