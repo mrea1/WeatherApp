@@ -46,7 +46,11 @@ increment_version() {
   # IFSbak=IFS
   # IFS='.'            # IFS restored at end of func to
   # read -ra v <<<"$v" #  avoid breaking other scripts.
-  v=${v%.*}.$((${v##*.}+1)) 
+  set -f
+  IFS=.
+  v=($v)
+  # for key in "${!v[@]}"; do echo "$key ${v[$key]}"; done
+
 
   # Determine target position.
   if [ "${targetPos}" == "last" ]; then
