@@ -1,11 +1,11 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Cut Release Branch
 
-# Every Sunday at 6:50CT
 on:
   schedule:
-    - cron: '*/10 * * * *'
+     # Every hour, on the hour
+     - cron: '0 * * * *'
+     # Every Friday at 5:00 PST
+#     - cron: '0 0 * * 6'
 
 jobs:
   build:
@@ -15,5 +15,12 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: run
+    - name: Cut branch
       run: sh ./scripts/release-branch-creator.sh
+
+    - name: Create Pull Request
+      uses: repo-sync/pull-request@v2.3
+      with:
+        source_branch: release-6.15.0 # todo: store version number from previous step
+        destination_branch: master
+        pr_title: Release 6.15.0
