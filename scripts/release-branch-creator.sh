@@ -45,8 +45,8 @@ increment_version() {
   # local IFSbak
   # IFSbak=IFS
   # IFS='.'            # IFS restored at end of func to
-  # read -ra v <<<"$v" #  avoid breaking other scripts.
-  v=${v%.*}.$((${v##*.})) 
+  read -ra v <<<"$v" #  avoid breaking other scripts.
+  v=(${v//./ })
 
   # Determine target position.
   if [ "${targetPos}" == "last" ]; then
@@ -79,7 +79,7 @@ increment_version() {
   else for ((p = $((${#v[@]} - 1)); $p > $targetPos; p--)); do v[$p]=0; done; fi
 
   echo "${v[*]}"
-  # IFS=IFSbak
+  IFS=IFSbak
   return 0
 }
 
