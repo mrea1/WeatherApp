@@ -46,7 +46,7 @@ increment_version() {
   # IFSbak=IFS
   # IFS='.'            # IFS restored at end of func to
   # read -ra v <<<"$v" #  avoid breaking other scripts.
-  v=${v%.*}.$((${v##*.}+1)) 
+  v=${v%.*}.$((${v##*.})) 
 
   # Determine target position.
   if [ "${targetPos}" == "last" ]; then
