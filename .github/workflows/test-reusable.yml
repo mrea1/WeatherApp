@@ -3,7 +3,7 @@ on:
 
 jobs:
   reuse-from-same-repository:
-    uses: mrea1/WeatherApp/.github/workflows/test-reusable.yml@mr-test-reusable-from-another-repo
+    uses: mrea1/WeatherApp/.github/workflows/test-reusable.yml@master
     with:
       username: ${{ github.actor }}
     secrets:
