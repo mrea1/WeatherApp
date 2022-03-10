@@ -1,0 +1,10 @@
+on:
+  push
+
+jobs:
+  reuse-from-same-repository:
+    uses: doximity/jira-tools/.github/workflows/test-reusable.yml@mr-test-reusable-from-another-repo
+    with:
+      username: ${{ github.actor }}
+    secrets:
+      token: ${{ secrets.JIRA_TOKEN }}
